@@ -2,7 +2,7 @@ import React from 'react';
 //import logo from './logo.svg';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import './App.scss';
-import { Columns, Container, Section, Hero, Heading } from 'react-bulma-components';
+import { Container, Section, Hero, Heading } from 'react-bulma-components';
 import Match from './components/Match';
 
 function App() {
