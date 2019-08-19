@@ -4,10 +4,12 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-      <div className="boxhero"></div>
+    <div className="QuinielaUI">
+      <div className="App-body">
+        <div className="Box-hero">
+          Content
+        </div>
+      </div>
     </div>
   );
 }
