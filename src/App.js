@@ -3,6 +3,7 @@ import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import './App.scss';
 import { Columns, Container, Section, Hero, Heading } from 'react-bulma-components';
+import Match from './components/Match';
 
 function App() {
   return (
@@ -24,11 +25,7 @@ function App() {
             </Hero>
           </Section>
           <Section>
-            <Columns>
-              <Columns.Column size="one-third">33.33% width of container</Columns.Column>
-              <Columns.Column size="one-third">33.33% width of container</Columns.Column>
-              <Columns.Column size="one-third">33.33% width of container</Columns.Column>
-            </Columns>
+            <Match></Match>
           </Section>
         </Container>
       </div>
