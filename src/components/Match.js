@@ -19,9 +19,18 @@ class Match extends React.Component{
       <Columns>
         <Columns.Column className='Match-TeamSelection' size="one-third">
           <Box>
-            <div className="Image-Box">
-              <Image src={america} /> 
-            </div>
+            <Columns>
+              <Columns.Column size="one-fourth">
+                <div className="Image-Box">
+                  <Image src={america} /> 
+                </div>
+              </Columns.Column>
+              <Columns.Column size="two-fourths">
+              </Columns.Column>
+              <Columns.Column size="one-fourth">
+                <Button fullwidth={false} color='white'>Click me</Button>
+              </Columns.Column>
+            </Columns>
           </Box>
         </Columns.Column>
 
@@ -41,8 +50,9 @@ class Match extends React.Component{
 
         <Columns.Column className='Match-TeamSelection' size="one-third">
           <Box>
-          <Columns>
-            <Columns.Column size="fourt-fifths">
+            <Columns>
+              <Columns.Column size="fourt-fifths">
+                <Button fullwidth={false} color='white'>Click me</Button>
               </Columns.Column>
               <Columns.Column size="one-fifth">
                 <div className="Image-Box">
