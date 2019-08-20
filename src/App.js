@@ -17,15 +17,16 @@ class App extends React.Component {
     }
   }
 
-  buildAndLoadMatches(teams, matches){
-    let transformedMatches = matches.map( match => {
+  buildAndLoadMatches(teams, playerMatches){
+    let transformedMatches = playerMatches.map( playerMatch => {
+      const match = playerMatch.match;
       let visitor = _.find( teams, team => team.id === match.visitor_team_id );
       let local = _.find( teams, team => team.id === match.local_team_id );
       return {
         local,
         visitor,
         id: match.id,
-        result: match.result
+        result: playerMatch.bet_match_result
       }
     });
 
@@ -40,7 +41,7 @@ class App extends React.Component {
       // get the teams
       const teams = res.data;
       // now get the matches raw data ( matchweek id is hardcoded )
-      axios.get(`${this.API_HOST}/matchweeks/14/matches`)
+      axios.get(`${this.API_HOST}/players/1/matchweeks/14/matches`)
       .then( res => {
         // we have access to the teams in this closure
         this.buildAndLoadMatches(teams, res.data);

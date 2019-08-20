@@ -11,7 +11,7 @@ class Match extends React.Component{
 
   LOCAL   = 'L';
   VISITOR = 'V';
-  TIE     = 'E';
+  TIE     = 'T';
 
   constructor(props){
     super(props);
