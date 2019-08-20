@@ -42,8 +42,10 @@ class Match extends React.Component{
                   <Image src={america} /> 
                 </div>
               </Columns.Column>
-              <Columns.Column style={{'textAlign': 'right'}}>
+              <Columns.Column className="Team-Name" size="one-quarter">
                 <span>{local.name}</span>
+              </Columns.Column>
+              <Columns.Column style={{'textAlign': 'right'}}>
                 <Button color='white' onClick={ 
                   ()=> this.handleClick(this.LOCAL)
                 }>
@@ -87,8 +89,10 @@ class Match extends React.Component{
                   : null}
                 </Button>
               </Columns.Column>
-              <Columns.Column>
+              <Columns.Column className="Team-Name" size="half" style={{"textAlign": "right"}}>
                 <span>{visitor.name}</span>
+              </Columns.Column>
+              <Columns.Column>
                 <div className="Image-Box">
                   <Image src={guadalajara} style={{float: 'right'}}/> 
                 </div>
