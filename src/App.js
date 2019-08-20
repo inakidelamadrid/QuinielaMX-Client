@@ -24,6 +24,7 @@ class App extends React.Component {
       return {
         local,
         visitor,
+        id: match.id,
         result: match.result
       }
     });
@@ -47,10 +48,14 @@ class App extends React.Component {
     });
   }
 
+  setMatchResult(matchId, value){
+    let match = _.find(this.state.matches, match => match.id === matchId)
+  }
+
   render(){
     const matchesComponents = this.state.matches.map((match, index) => {
       return (
-        <Match key={"match#" + index} data={match}></Match>
+        <Match key={"match#" + index} data={match} setMatchResult={this.setMatchResult.bind(this)}></Match>
       )
     });
     return (

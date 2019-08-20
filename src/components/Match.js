@@ -4,10 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 import './Match.scss';
-import america from '../America.png'
-import guadalajara from '../Guadalajara.png'
-
-
 
 
 class Match extends React.Component{
@@ -25,9 +21,8 @@ class Match extends React.Component{
   }
 
   handleClick(value){
-    this.setState({
-      result: value
-    });
+    this.props.setMatchResult(this.props.data.id, value);
+    this.setState({result: value});
   }
 
   render(){
