@@ -12,12 +12,23 @@ import guadalajara from '../Guadalajara.png'
 
 
 class Match extends React.Component{
+  LOCAL   = 1;
+  VISITOR = 2;
+  TIE     = 3;
+
   constructor(props){
     super(props);
     this.state = {
-      localTeam: {id: 1},
-      visitorTeam: {id: 2}
+      result: {
+        local   : true,
+        tie     : false,
+        visitor : false
+      }
     }
+  }
+
+  handleClick(result){
+    console.log("Result: " + result);
   }
 
   render(){
@@ -32,8 +43,12 @@ class Match extends React.Component{
                 </div>
               </Columns.Column>
               <Columns.Column style={{'textAlign': 'right'}}>
-                <Button color='white'>
+                <Button color='white' onClick={ 
+                  ()=> this.handleClick(this.LOCAL)
+                }>
+                  {this.state.result.local ? 
                   <FontAwesomeIcon icon={faCheck} size="3x"/>
+                  : null}
                 </Button>
               </Columns.Column>
             </Columns>
@@ -46,8 +61,12 @@ class Match extends React.Component{
               <Columns.Column size="two-fifths">
               </Columns.Column>
               <Columns.Column size="one-fifth">
-                <Button fullwidth={false} color='white'>
+                <Button fullwidth={false}
+                        color='white'
+                        onClick={()=> this.handleClick(this.TIE)}>
+                  {this.state.result.tie ? 
                   <FontAwesomeIcon icon={faCheck} size="3x"/>
+                  : null}
                 </Button>
               </Columns.Column>
               <Columns.Column size="two-fifths">
@@ -60,8 +79,11 @@ class Match extends React.Component{
           <Box>
             <Columns>
               <Columns.Column size="one-quarter">
-                <Button fullwidth={false} color='white'>
+                <Button fullwidth={false} color='white'
+                  onClick={()=> this.handleClick(this.VISITOR)}>
+                  {this.state.result.visitor ? 
                   <FontAwesomeIcon icon={faCheck} size="3x"/>
+                  : null}
                 </Button>
               </Columns.Column>
               <Columns.Column>
