@@ -1,6 +1,5 @@
 import React from 'react';
 import {Box, Button, Image, Columns} from 'react-bulma-components';
-import fontawesome from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
@@ -12,30 +11,21 @@ import guadalajara from '../Guadalajara.png'
 
 
 class Match extends React.Component{
-  LOCAL   = 'local';
-  VISITOR = 'visitor';
-  TIE     = 'tie';
+  LOCAL   = 'L';
+  VISITOR = 'V';
+  TIE     = 'E';
 
   constructor(props){
     super(props);
     this.state = {
-      result: {
-        local   : true,
-        tie     : false,
-        visitor : false
-      }
+      result: this.LOCAL
     }
   }
 
   handleClick(value){
-    let result = {
-      local   : false,
-      tie     : false,
-      visitor : false
-    };
-    result[value] = true;
+    console.log(value);
     this.setState({
-      result
+      result: value
     });
   }
 
@@ -54,7 +44,7 @@ class Match extends React.Component{
                 <Button color='white' onClick={ 
                   ()=> this.handleClick(this.LOCAL)
                 }>
-                  {this.state.result.local ? 
+                  {this.state.result === this.LOCAL ? 
                   <FontAwesomeIcon icon={faCheck} size="3x"/>
                   : null}
                 </Button>
@@ -72,7 +62,7 @@ class Match extends React.Component{
                 <Button fullwidth={false}
                         color='white'
                         onClick={()=> this.handleClick(this.TIE)}>
-                  {this.state.result.tie ? 
+                  {this.state.result === this.TIE ? 
                   <FontAwesomeIcon icon={faCheck} size="3x"/>
                   : null}
                 </Button>
@@ -89,7 +79,7 @@ class Match extends React.Component{
               <Columns.Column size="one-quarter">
                 <Button fullwidth={false} color='white'
                   onClick={()=> this.handleClick(this.VISITOR)}>
-                  {this.state.result.visitor ? 
+                  {this.state.result === this.VISITOR ? 
                   <FontAwesomeIcon icon={faCheck} size="3x"/>
                   : null}
                 </Button>
