@@ -21,7 +21,7 @@ class Match extends React.Component{
   }
 
   handleClick(value){
-    this.props.setMatchResult(this.props.data.id, value);
+    this.props.setMatchResult(this.props.data.playerMatchId, value);
     this.setState({result: value});
   }
 

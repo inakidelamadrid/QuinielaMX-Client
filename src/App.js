@@ -29,7 +29,7 @@ class App extends React.Component {
       return {
         local,
         visitor,
-        id: match.id,
+        playerMatchId: playerMatch.id,
         result: playerMatch.bet_match_result
       }
     });
@@ -54,7 +54,10 @@ class App extends React.Component {
   }
 
   setMatchResult(matchId, value){
-    let match = _.find(this.state.matches, match => match.id === matchId)
+    axios.patch(
+      `${this.API_HOST}/players/${this.PLAYER_ID}/matchweeks/${this.MATCHWEEK_ID}/matches/${matchId}`,
+      {result: value, using_new_cli: true}
+    )
   }
 
   render(){
