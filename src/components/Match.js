@@ -23,13 +23,15 @@ class Match extends React.Component{
   }
 
   handleClick(value){
-    console.log(value);
     this.setState({
       result: value
     });
   }
 
   render(){
+    const local = this.props.data.local;
+    const visitor = this.props.data.visitor;
+
     return (
       <Columns>
         <Columns.Column className='Match-TeamSelection' size="one-third">
@@ -41,6 +43,7 @@ class Match extends React.Component{
                 </div>
               </Columns.Column>
               <Columns.Column style={{'textAlign': 'right'}}>
+                <span>{local.name}</span>
                 <Button color='white' onClick={ 
                   ()=> this.handleClick(this.LOCAL)
                 }>
@@ -85,6 +88,7 @@ class Match extends React.Component{
                 </Button>
               </Columns.Column>
               <Columns.Column>
+                <span>{visitor.name}</span>
                 <div className="Image-Box">
                   <Image src={guadalajara} style={{float: 'right'}}/> 
                 </div>

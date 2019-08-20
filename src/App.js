@@ -29,7 +29,7 @@ class App extends React.Component {
   render(){
     const matchesComponents = this.state.matches.map((match, index) => {
       return (
-        <Match key={`match#${index}`} data={match}></Match>
+        <Match key={"match#" + index} data={match}></Match>
       )
     });
     return (
