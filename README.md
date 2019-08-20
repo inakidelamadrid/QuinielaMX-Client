@@ -69,3 +69,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ## More Technologies
 All the UI is based on the [Bulma CSS framework](https://bulma.io/) using the [React Bulma Components](https://github.com/couds/react-bulma-compo). A good documentation on the components can be found at its [Storybook](https://couds.github.io/react-bulma-components/?selectedKind=Button&selectedStory=Default&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Fstories%2Fstories-panel)
+
+Also used axios for the HTTP API requests. A good cheatsheet on axios was built by [Kapeli](https://kapeli.com/cheat_sheets/Axios.docset/Contents/Resources/Documents/index). You can follow a tutorial on [using axios with React](https://alligator.io/react/axios-react/)
+
+The [check](https://fontawesome.com/icons?d=gallery&q=check-) icon is by Fontawesome. I followed [npm instructions](https://www.npmjs.com/package/@fortawesome/react-fontawesome#installation) to install it and use it.
