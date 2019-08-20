@@ -20,7 +20,7 @@ class Match extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      result: this.LOCAL
+      result: props.data.result
     }
   }
 

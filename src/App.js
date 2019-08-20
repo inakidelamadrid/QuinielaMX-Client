@@ -23,7 +23,8 @@ class App extends React.Component {
       let local = _.find( teams, team => team.id === match.local_team_id );
       return {
         local,
-        visitor
+        visitor,
+        result: match.result
       }
     });
 
