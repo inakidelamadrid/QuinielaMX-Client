@@ -37,7 +37,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Learn More about React
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
@@ -66,3 +66,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## More Technologies
+All the UI is based on the [Bulma CSS framework](https://bulma.io/) using the [React Bulma Components](https://github.com/couds/react-bulma-compo). A good documentation on the components can be found at its [Storybook](https://couds.github.io/react-bulma-components/?selectedKind=Button&selectedStory=Default&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Fstories%2Fstories-panel)
