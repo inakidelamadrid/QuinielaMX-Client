@@ -8,6 +8,10 @@ import Match from './components/Match';
 
 class App extends React.Component {
   API_HOST = "http://localhost:5000/api";
+  // this player id is coded but it can exist in a URL param
+  PLAYER_ID = 1;
+  // same for the week id
+  MATCHWEEK_ID = 14;
 
   constructor(props){
     super(props);
@@ -41,7 +45,7 @@ class App extends React.Component {
       // get the teams
       const teams = res.data;
       // now get the matches raw data ( matchweek id is hardcoded )
-      axios.get(`${this.API_HOST}/players/1/matchweeks/14/matches`)
+      axios.get(`${this.API_HOST}/players/${this.PLAYER_ID}/matchweeks/${this.MATCHWEEK_ID}/matches`)
       .then( res => {
         // we have access to the teams in this closure
         this.buildAndLoadMatches(teams, res.data);
