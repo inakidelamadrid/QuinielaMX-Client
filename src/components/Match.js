@@ -11,6 +11,8 @@ import guadalajara from '../Guadalajara.png'
 
 
 class Match extends React.Component{
+  IMAGES_HOST = "http://localhost:5000/static/images/logos";
+
   LOCAL   = 'L';
   VISITOR = 'V';
   TIE     = 'E';
@@ -39,7 +41,7 @@ class Match extends React.Component{
             <Columns>
               <Columns.Column size="one-quarter">
                 <div className="Image-Box">
-                  <Image src={america} /> 
+                  <Image src={`${this.IMAGES_HOST}/${local.image_name}`} /> 
                 </div>
               </Columns.Column>
               <Columns.Column className="Team-Name" size="one-quarter">
@@ -94,7 +96,7 @@ class Match extends React.Component{
               </Columns.Column>
               <Columns.Column>
                 <div className="Image-Box">
-                  <Image src={guadalajara} style={{float: 'right'}}/> 
+                  <Image src={`${this.IMAGES_HOST}/${visitor.image_name}`} /> 
                 </div>
               </Columns.Column>
             </Columns>
