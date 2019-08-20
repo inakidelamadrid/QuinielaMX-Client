@@ -1,29 +1,49 @@
 import React from 'react';
-//import logo from './logo.svg';
+import _ from 'lodash';
+import axios from 'axios';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import './App.scss';
 import { Container, Section, Hero, Heading } from 'react-bulma-components';
 import Match from './components/Match';
 
 class App extends React.Component {
+  API_HOST = "http://localhost:5000/api";
+
   constructor(props){
     super(props);
     this.state = {
-      matches: [
-      {
-        local   : {name: 'America', id: 1},
-        visitor : {name: 'Guadalajara', id: 2},
-      },
-      {
-        local   : {name: 'Cruz Azul', id: 3},
-        visitor : {name: 'Toluca', id: 4},
-      },
-      {
-        local   : {name: 'Atlas', id: 5},
-        visitor : {name: 'Queretaro', id: 6},
-      }
-      ]
+      matches: [],
+      teams: []
     }
+  }
+
+  buildAndLoadMatches(teams, matches){
+    let transformedMatches = matches.map( match => {
+      let visitor = _.find( teams, team => team.id === match.visitor_team_id );
+      let local = _.find( teams, team => team.id === match.local_team_id );
+      return {
+        local,
+        visitor
+      }
+    });
+
+    this.setState({
+      matches: transformedMatches
+    });
+  }
+
+  componentDidMount(){
+    axios.get(`${this.API_HOST}/teams`)
+    .then(res => {
+      // get the teams
+      const teams = res.data;
+      // now get the matches raw data ( matchweek id is hardcoded )
+      axios.get(`${this.API_HOST}/matchweeks/14/matches`)
+      .then( res => {
+        // we have access to the teams in this closure
+        this.buildAndLoadMatches(teams, res.data);
+      })
+    });
   }
 
   render(){
