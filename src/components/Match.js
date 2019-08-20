@@ -12,9 +12,9 @@ import guadalajara from '../Guadalajara.png'
 
 
 class Match extends React.Component{
-  LOCAL   = 1;
-  VISITOR = 2;
-  TIE     = 3;
+  LOCAL   = 'local';
+  VISITOR = 'visitor';
+  TIE     = 'tie';
 
   constructor(props){
     super(props);
@@ -27,8 +27,16 @@ class Match extends React.Component{
     }
   }
 
-  handleClick(result){
-    console.log("Result: " + result);
+  handleClick(value){
+    let result = {
+      local   : false,
+      tie     : false,
+      visitor : false
+    };
+    result[value] = true;
+    this.setState({
+      result
+    });
   }
 
   render(){
